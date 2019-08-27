@@ -30,5 +30,10 @@ namespace PDI_Photoshop
 
             return (Image)bImagem;
         }
+
+        public void test1()
+        {
+
+        }
     }
 }
