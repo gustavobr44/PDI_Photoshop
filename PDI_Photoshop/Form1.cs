@@ -13,10 +13,13 @@ namespace PDI_Photoshop
     public partial class FormInicial : Form
     {
         private Image imagem;
+        private FuncoesPDI func;
 
         public FormInicial()
         {
             InitializeComponent();
+
+            func = new FuncoesPDI();
         }
 
         private void AbrirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,8 +58,6 @@ namespace PDI_Photoshop
 
         private void FuncaoNeg_Click(object sender, EventArgs e)
         {
-            FuncoesPDI func = new FuncoesPDI();
-
             imagem = func.aplicarNegativo(imagem);
 
             imgDisplay.Image = imagem;
