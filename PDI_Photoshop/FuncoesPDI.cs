@@ -35,5 +35,10 @@ namespace PDI_Photoshop
         {
 
         }
+
+        public void test2()
+        {
+
+        }
     }
 }
