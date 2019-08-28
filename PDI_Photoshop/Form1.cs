@@ -62,6 +62,13 @@ namespace PDI_Photoshop
 
             imgDisplay.Image = imagem;
         }
+
+        private void FuncaoLog_Click(object sender, EventArgs e)
+        {
+            imagem = func.aplicarLog(imagem);
+
+            imgDisplay.Image = imagem;
+        }
     }
 }
 

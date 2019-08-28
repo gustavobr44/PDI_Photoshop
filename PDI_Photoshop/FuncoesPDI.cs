@@ -30,5 +30,27 @@ namespace PDI_Photoshop
 
             return (Image)bImagem;
         }
+
+        public Image aplicarLog(Image imagem)
+        {
+            Bitmap bImagem = (Bitmap)imagem;
+
+            for (int i = 0; i < bImagem.Width; i++)
+            {
+                for (int j = 0; j < bImagem.Height; j++)
+                {
+                    Color pixel = bImagem.GetPixel(i, j);
+
+                    double R = 255.0 * Math.Log(1.0 + (pixel.R / 255.0), 2);
+                    double G = 255.0 * Math.Log(1.0 + (pixel.G / 255.0), 2);
+                    double B = 255.0 * Math.Log(1.0 + (pixel.B / 255.0), 2);
+
+                    pixel = Color.FromArgb((int)R, (int)G, (int)B);
+                    bImagem.SetPixel(i, j, pixel);
+                }
+            }
+
+            return (Image)bImagem;
+        }
     }
 }
