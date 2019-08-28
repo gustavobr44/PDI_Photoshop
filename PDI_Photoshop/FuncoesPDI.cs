@@ -34,6 +34,7 @@ namespace PDI_Photoshop
         public Image aplicarLog(Image imagem)
         {
             Bitmap bImagem = (Bitmap)imagem;
+            double maxLog = Math.Log(255.0);
 
             for (int i = 0; i < bImagem.Width; i++)
             {
@@ -41,11 +42,11 @@ namespace PDI_Photoshop
                 {
                     Color pixel = bImagem.GetPixel(i, j);
 
-                    double R = 255.0 * Math.Log(1.0 + (pixel.R / 255.0), 2);
-                    double G = 255.0 * Math.Log(1.0 + (pixel.G / 255.0), 2);
-                    double B = 255.0 * Math.Log(1.0 + (pixel.B / 255.0), 2);
+                    double R = 255.0 * (Math.Log(pixel.R) / maxLog);
+                    double G = 255.0 * (Math.Log(pixel.G) / maxLog);
+                    double B = 255.0 * (Math.Log(pixel.B) / maxLog);
 
-                    pixel = Color.FromArgb((int)R, (int)G, (int)B);
+                    pixel = Color.FromArgb((byte)R, (byte)G, (byte)B);
                     bImagem.SetPixel(i, j, pixel);
                 }
             }
