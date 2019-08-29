@@ -63,6 +63,46 @@ namespace PDI_Photoshop.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _19_512 {
+            get {
+                object obj = ResourceManager.GetObject("19-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _610359_200 {
+            get {
+                object obj = ResourceManager.GetObject("610359-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap log_logarithm_math_function_calculator_512 {
+            get {
+                object obj = ResourceManager.GetObject("log-logarithm-math-function-calculator-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap negative {
+            get {
+                object obj = ResourceManager.GetObject("negative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SeldfPianoEsquematico {
             get {
                 object obj = ResourceManager.GetObject("SeldfPianoEsquematico", resourceCulture);

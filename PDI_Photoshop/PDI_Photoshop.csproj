@@ -92,7 +92,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SeldfPianoEsquematico.jpg" />
+    <None Include="Resources\610359-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-logarithm-math-function-calculator-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
