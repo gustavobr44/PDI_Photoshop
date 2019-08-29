@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PDI_Photoshop
 {
-    public partial class FormInicial : Form
+    public partial class FormPrincipal : Form
     {
         private Image imagem;
         private FuncoesPDI func;
 
-        public FormInicial()
+        public FormPrincipal()
         {
             InitializeComponent();
 
@@ -68,6 +68,15 @@ namespace PDI_Photoshop
             imagem = func.aplicarLog(imagem);
 
             imgDisplay.Image = imagem;
+        }
+
+        private void HistogramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHistograma fHist = new FormHistograma();
+            fHist.Activate();
+            fHist.Show();
+
+            fHist.atualizarHistograma(func.obterHistograma(imagem));
         }
     }
 }

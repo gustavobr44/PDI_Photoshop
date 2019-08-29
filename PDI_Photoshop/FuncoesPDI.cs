@@ -53,5 +53,25 @@ namespace PDI_Photoshop
 
             return (Image)bImagem;
         }
+
+        public int[,] obterHistograma(Image imagem)
+        {
+            Bitmap bImagem = (Bitmap)imagem;
+            int[,] hist = new int[256, 3];
+
+            for (int i = 0; i < bImagem.Width; i++)
+            {
+                for (int j = 0; j < bImagem.Height; j++)
+                {
+                    Color pixel = bImagem.GetPixel(i, j);
+
+                    hist[pixel.R, 0]++;
+                    hist[pixel.G, 1]++;
+                    hist[pixel.B, 2]++;
+                }
+            }
+
+            return hist;
+        }
     }
 }

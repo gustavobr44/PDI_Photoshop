@@ -16,7 +16,7 @@ namespace PDI_Photoshop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormInicial());
+            Application.Run(new FormPrincipal());
         }
     }
 }
