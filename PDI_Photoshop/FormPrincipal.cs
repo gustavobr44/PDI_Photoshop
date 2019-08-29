@@ -78,6 +78,13 @@ namespace PDI_Photoshop
 
             fHist.atualizarHistograma(func.obterHistograma(imagem));
         }
+
+        private void NovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPrincipal novaJanela = new FormPrincipal();
+            novaJanela.Activate();
+            novaJanela.Show();
+        }
     }
 }
 
