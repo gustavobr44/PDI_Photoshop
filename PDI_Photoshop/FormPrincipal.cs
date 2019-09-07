@@ -85,6 +85,13 @@ namespace PDI_Photoshop
             novaJanela.Activate();
             novaJanela.Show();
         }
+
+        private void FuncaoPot_Click(object sender, EventArgs e)
+        {
+            imagem = func.aplicarPot(imagem);
+
+            imgDisplay.Image = imagem;
+        }
     }
 }
 

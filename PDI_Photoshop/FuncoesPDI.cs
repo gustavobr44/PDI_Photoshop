@@ -54,6 +54,29 @@ namespace PDI_Photoshop
             return (Image)bImagem;
         }
 
+        public Image aplicarPot(Image imagem)
+        {
+            Bitmap bImagem = (Bitmap)imagem;
+            double maxLog = Math.Pow(255.0, 5);
+
+            for (int i = 0; i < bImagem.Width; i++)
+            {
+                for (int j = 0; j < bImagem.Height; j++)
+                {
+                    Color pixel = bImagem.GetPixel(i, j);
+
+                    double R = 255.0 * (Math.Pow(pixel.R, 5) / maxLog);
+                    double G = 255.0 * (Math.Pow(pixel.G, 5) / maxLog);
+                    double B = 255.0 * (Math.Pow(pixel.B, 5) / maxLog);
+
+                    pixel = Color.FromArgb((byte)R, (byte)G, (byte)B);
+                    bImagem.SetPixel(i, j, pixel);
+                }
+            }
+
+            return (Image)bImagem;
+        }
+
         public int[,] obterHistograma(Image imagem)
         {
             Bitmap bImagem = (Bitmap)imagem;
