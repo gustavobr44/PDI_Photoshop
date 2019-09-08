@@ -16,7 +16,7 @@ namespace PDI_Photoshop
 
         public Image aplicarNegativo(Image imagem)
         {
-            Bitmap bImagem = (Bitmap)imagem;
+            Bitmap bImagem = (Bitmap)imagem.Clone();
 
             for (int i = 0; i < bImagem.Width; i++)
             {
@@ -33,7 +33,7 @@ namespace PDI_Photoshop
 
         public Image aplicarLog(Image imagem)
         {
-            Bitmap bImagem = (Bitmap)imagem;
+            Bitmap bImagem = (Bitmap)imagem.Clone();
             double maxLog = Math.Log(255.0);
 
             for (int i = 0; i < bImagem.Width; i++)
@@ -56,7 +56,7 @@ namespace PDI_Photoshop
 
         public Image aplicarPot(Image imagem)
         {
-            Bitmap bImagem = (Bitmap)imagem;
+            Bitmap bImagem = (Bitmap)imagem.Clone();
             double maxLog = Math.Pow(255.0, 5);
 
             for (int i = 0; i < bImagem.Width; i++)

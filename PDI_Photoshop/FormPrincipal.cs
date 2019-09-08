@@ -12,14 +12,20 @@ namespace PDI_Photoshop
 {
     public partial class FormPrincipal : Form
     {
-        private Image imagem;
-        private FuncoesPDI func;
+        private IGerenciador gere;
 
         public FormPrincipal()
         {
             InitializeComponent();
 
-            func = new FuncoesPDI();
+            gere = new Gerenciador(imgDisplay);
+        }
+
+        private void NovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPrincipal novaJanela = new FormPrincipal();
+            novaJanela.Activate();
+            novaJanela.Show();
         }
 
         private void AbrirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,8 +36,8 @@ namespace PDI_Photoshop
 
             if (abrirImagem.ShowDialog() == DialogResult.OK)
             {
-                imagem = Image.FromFile(abrirImagem.FileName);
-                imgDisplay.Image = imagem;
+                Image imagem = Image.FromFile(abrirImagem.FileName);
+                gere.adcImagem(imagem);
                 abrirImagem.Dispose();
             }
         }
@@ -44,6 +50,7 @@ namespace PDI_Photoshop
 
             if (salvarImagem.ShowDialog() == DialogResult.OK)
             {
+                Image imagem = gere.getImagem();
                 imagem.Save(salvarImagem.FileName);
                 MessageBox.Show("Imagem salva com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 salvarImagem.Dispose();
@@ -58,39 +65,32 @@ namespace PDI_Photoshop
 
         private void FuncaoNeg_Click(object sender, EventArgs e)
         {
-            imagem = func.aplicarNegativo(imagem);
-
-            imgDisplay.Image = imagem;
+            gere.aplNegativo();
         }
 
         private void FuncaoLog_Click(object sender, EventArgs e)
         {
-            imagem = func.aplicarLog(imagem);
-
-            imgDisplay.Image = imagem;
-        }
-
-        private void HistogramaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormHistograma fHist = new FormHistograma();
-            fHist.Activate();
-            fHist.Show();
-
-            fHist.atualizarHistograma(func.obterHistograma(imagem));
-        }
-
-        private void NovoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPrincipal novaJanela = new FormPrincipal();
-            novaJanela.Activate();
-            novaJanela.Show();
+            gere.aplLogaritmo();
         }
 
         private void FuncaoPot_Click(object sender, EventArgs e)
         {
-            imagem = func.aplicarPot(imagem);
+            gere.aplPotencia();
+        }
 
-            imgDisplay.Image = imagem;
+        private void HistogramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gere.mostHistograma();
+        }
+
+        private void DesfazerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            gere.desfazer();
+        }
+
+        private void RefazerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            gere.refazer();
         }
     }
 }

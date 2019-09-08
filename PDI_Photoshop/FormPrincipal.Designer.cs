@@ -336,20 +336,22 @@
             // 
             this.desfazerToolStripMenuItem1.Name = "desfazerToolStripMenuItem1";
             this.desfazerToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.desfazerToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
+            this.desfazerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.desfazerToolStripMenuItem1.Text = "&Desfazer";
+            this.desfazerToolStripMenuItem1.Click += new System.EventHandler(this.DesfazerToolStripMenuItem1_Click);
             // 
             // refazerToolStripMenuItem1
             // 
             this.refazerToolStripMenuItem1.Name = "refazerToolStripMenuItem1";
             this.refazerToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.refazerToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
+            this.refazerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.refazerToolStripMenuItem1.Text = "&Refazer";
+            this.refazerToolStripMenuItem1.Click += new System.EventHandler(this.RefazerToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // recortarToolStripMenuItem
             // 
@@ -357,7 +359,7 @@
             this.recortarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
             this.recortarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recortarToolStripMenuItem.Text = "Recor&tar";
             // 
             // copiarToolStripMenuItem
@@ -366,7 +368,7 @@
             this.copiarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copiarToolStripMenuItem.Text = "&Copiar";
             // 
             // colarToolStripMenuItem
@@ -375,18 +377,18 @@
             this.colarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
             this.colarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colarToolStripMenuItem.Text = "C&olar";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // selecionarTudoToolStripMenuItem
             // 
             this.selecionarTudoToolStripMenuItem.Name = "selecionarTudoToolStripMenuItem";
-            this.selecionarTudoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.selecionarTudoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selecionarTudoToolStripMenuItem.Text = "Selecionar &Tudo";
             // 
             // ferramentasToolStripMenuItem

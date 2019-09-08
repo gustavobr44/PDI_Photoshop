@@ -60,6 +60,9 @@
       <DependentUpon>FormHistograma.cs</DependentUpon>
     </Compile>
     <Compile Include="FuncoesPDI.cs" />
+    <Compile Include="Gerenciador.cs" />
+    <Compile Include="IGerenciador.cs" />
+    <Compile Include="ImagemCustom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrincipal.resx">
