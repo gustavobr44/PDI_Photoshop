@@ -19,5 +19,17 @@ namespace PDI_Photoshop
             this.imagem = imagem;
             this.imagemDep = null;
         }
+
+        public void disposeDeps()
+        {
+            if (imagemDep != null)
+            {
+                imagemDep.disposeDeps();
+            }
+
+            imagemDep = null;
+            imagemAnt = null;
+            imagem.Dispose();
+        }
     }
 }

@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="Interfaces\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="Interfaces\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHistograma.cs">
+    <Compile Include="Interfaces\FormHistograma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHistograma.Designer.cs">
+    <Compile Include="Interfaces\FormHistograma.Designer.cs">
       <DependentUpon>FormHistograma.cs</DependentUpon>
     </Compile>
     <Compile Include="FuncoesPDI.cs" />
@@ -65,10 +65,10 @@
     <Compile Include="ImagemCustom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="Interfaces\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormHistograma.resx">
+    <EmbeddedResource Include="Interfaces\FormHistograma.resx">
       <DependentUpon>FormHistograma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

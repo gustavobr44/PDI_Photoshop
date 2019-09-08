@@ -29,6 +29,11 @@ namespace PDI_Photoshop
             }
             else
             {
+                if (imagemC.imagemDep != null)
+                {
+                    imagemC.imagemDep.disposeDeps();
+                }
+
                 ImagemCustom imagemNov = new ImagemCustom(imagem);
                 imagemNov.imagemAnt = this.imagemC;
                 this.imagemC.imagemDep = imagemNov;
