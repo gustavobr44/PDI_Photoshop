@@ -20,7 +20,7 @@ namespace PDI_Photoshop
         String obtEsteganografia();
         Image aplEsteganografia(String texto);
         void mostHistograma();
-        Image aplEqualizacao();
+        void aplEqualizacao();
         Image aplFiltroGenerico();
         Image aplFiltroMedia();
         Image aplFiltroGaussiano();

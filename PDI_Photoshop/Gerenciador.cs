@@ -99,9 +99,9 @@ namespace PDI_Photoshop
             fHist.atualizarHistograma(funcs.obterHistograma(getImagem()));
         }
 
-        public Image aplEqualizacao()
+        public void aplEqualizacao()
         {
-            throw new NotImplementedException();
+            adcImagem(funcs.aplicarEqua(getImagem()));
         }
 
         public Image aplFiltroGenerico()

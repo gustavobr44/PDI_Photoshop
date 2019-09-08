@@ -92,6 +92,11 @@ namespace PDI_Photoshop
         {
             gere.refazer();
         }
+
+        private void FuncaoEqu_Click(object sender, EventArgs e)
+        {
+            gere.aplEqualizacao();
+        }
     }
 }
 

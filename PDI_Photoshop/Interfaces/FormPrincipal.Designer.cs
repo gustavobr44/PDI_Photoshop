@@ -37,7 +37,7 @@
             this.funcao8 = new System.Windows.Forms.Button();
             this.funcao6 = new System.Windows.Forms.Button();
             this.funcao5 = new System.Windows.Forms.Button();
-            this.funcao4 = new System.Windows.Forms.Button();
+            this.funcaoEqu = new System.Windows.Forms.Button();
             this.funcaoPot = new System.Windows.Forms.Button();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnNegativo = new System.Windows.Forms.Button();
@@ -143,14 +143,15 @@
             this.funcao5.TabIndex = 4;
             this.funcao5.UseVisualStyleBackColor = false;
             // 
-            // funcao4
+            // funcaoEqu
             // 
-            this.funcao4.BackColor = System.Drawing.Color.Gray;
-            this.funcao4.Location = new System.Drawing.Point(3, 171);
-            this.funcao4.Name = "funcao4";
-            this.funcao4.Size = new System.Drawing.Size(50, 50);
-            this.funcao4.TabIndex = 3;
-            this.funcao4.UseVisualStyleBackColor = false;
+            this.funcaoEqu.BackColor = System.Drawing.Color.Gray;
+            this.funcaoEqu.Location = new System.Drawing.Point(3, 171);
+            this.funcaoEqu.Name = "funcaoEqu";
+            this.funcaoEqu.Size = new System.Drawing.Size(50, 50);
+            this.funcaoEqu.TabIndex = 3;
+            this.funcaoEqu.UseVisualStyleBackColor = false;
+            this.funcaoEqu.Click += new System.EventHandler(this.FuncaoEqu_Click);
             // 
             // funcaoPot
             // 
@@ -170,7 +171,7 @@
             this.pnlBotoes.Controls.Add(this.btnNegativo);
             this.pnlBotoes.Controls.Add(this.btnLogaritmo);
             this.pnlBotoes.Controls.Add(this.funcaoPot);
-            this.pnlBotoes.Controls.Add(this.funcao4);
+            this.pnlBotoes.Controls.Add(this.funcaoEqu);
             this.pnlBotoes.Controls.Add(this.funcao11);
             this.pnlBotoes.Controls.Add(this.funcao5);
             this.pnlBotoes.Controls.Add(this.funcao10);
@@ -336,7 +337,7 @@
             // 
             this.desfazerToolStripMenuItem1.Name = "desfazerToolStripMenuItem1";
             this.desfazerToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.desfazerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.desfazerToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.desfazerToolStripMenuItem1.Text = "&Desfazer";
             this.desfazerToolStripMenuItem1.Click += new System.EventHandler(this.DesfazerToolStripMenuItem1_Click);
             // 
@@ -344,14 +345,14 @@
             // 
             this.refazerToolStripMenuItem1.Name = "refazerToolStripMenuItem1";
             this.refazerToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.refazerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.refazerToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.refazerToolStripMenuItem1.Text = "&Refazer";
             this.refazerToolStripMenuItem1.Click += new System.EventHandler(this.RefazerToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(156, 6);
             // 
             // recortarToolStripMenuItem
             // 
@@ -359,7 +360,7 @@
             this.recortarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.recortarToolStripMenuItem.Name = "recortarToolStripMenuItem";
             this.recortarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recortarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.recortarToolStripMenuItem.Text = "Recor&tar";
             // 
             // copiarToolStripMenuItem
@@ -368,7 +369,7 @@
             this.copiarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.copiarToolStripMenuItem.Text = "&Copiar";
             // 
             // colarToolStripMenuItem
@@ -377,18 +378,18 @@
             this.colarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
             this.colarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.colarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.colarToolStripMenuItem.Text = "C&olar";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(156, 6);
             // 
             // selecionarTudoToolStripMenuItem
             // 
             this.selecionarTudoToolStripMenuItem.Name = "selecionarTudoToolStripMenuItem";
-            this.selecionarTudoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selecionarTudoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.selecionarTudoToolStripMenuItem.Text = "Selecionar &Tudo";
             // 
             // ferramentasToolStripMenuItem
@@ -407,20 +408,20 @@
             this.histogramaToolStripMenuItem.Image = global::PDI_Photoshop.Properties.Resources._19_512;
             this.histogramaToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.histogramaToolStripMenuItem.Name = "histogramaToolStripMenuItem";
-            this.histogramaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.histogramaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.histogramaToolStripMenuItem.Text = "&Histograma";
             this.histogramaToolStripMenuItem.Click += new System.EventHandler(this.HistogramaToolStripMenuItem_Click);
             // 
             // personalizarToolStripMenuItem
             // 
             this.personalizarToolStripMenuItem.Name = "personalizarToolStripMenuItem";
-            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.personalizarToolStripMenuItem.Text = "&Personalizar";
             // 
             // opçõesToolStripMenuItem
             // 
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.opçõesToolStripMenuItem.Text = "&Opções";
             // 
             // ajudaToolStripMenuItem
@@ -511,7 +512,7 @@
         private System.Windows.Forms.Button funcao8;
         private System.Windows.Forms.Button funcao6;
         private System.Windows.Forms.Button funcao5;
-        private System.Windows.Forms.Button funcao4;
+        private System.Windows.Forms.Button funcaoEqu;
         private System.Windows.Forms.Button funcaoPot;
         private System.Windows.Forms.Button btnLogaritmo;
         private System.Windows.Forms.Panel pnlBotoes;
