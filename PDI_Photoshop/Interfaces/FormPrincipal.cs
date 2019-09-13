@@ -97,6 +97,12 @@ namespace PDI_Photoshop
         {
             gere.aplEqualizacao();
         }
+
+        private void EsteganografiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //gere.obtEsteganografia();
+            MessageBox.Show(gere.obtEsteganografia()[0], "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
 

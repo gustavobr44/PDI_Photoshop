@@ -141,5 +141,38 @@ namespace PDI_Photoshop
 
             return (Image)bImagem;
         }
+
+        public String[] obterEsteganografia(Image imagem)
+        {
+            String[] esteg = new String[3];
+            Bitmap bImagem = (Bitmap)imagem;
+            short count = 0;
+            int letraR = 0, letraG = 0, letraB = 0;
+            
+            for (int i = 0; i < bImagem.Width; i++)
+            {
+                for (int j = 0; j < bImagem.Height; j++)
+                {
+                    Color pixel = bImagem.GetPixel(i, j);
+
+                    letraR |= ((pixel.R & 1) << (7 - count));
+                    letraG |= ((pixel.G & 1) << (7 - count));
+                    letraB |= ((pixel.B & 1) << (7 - count));
+
+                    if (++count == 8)
+                    {
+                        count = 0;
+
+                        esteg[0] += (char)letraR;
+                        esteg[1] += (char)letraG;
+                        esteg[2] += (char)letraB;
+
+                        letraR = 0; letraG = 0; letraB = 0;
+                    }
+                }
+            }
+
+            return esteg;
+        }
     }
 }

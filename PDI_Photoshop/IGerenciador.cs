@@ -17,7 +17,7 @@ namespace PDI_Photoshop
         void aplLogaritmo();
         void aplPotencia();
         void aplLinear();
-        String obtEsteganografia();
+        String[] obtEsteganografia();
         Image aplEsteganografia(String texto);
         void mostHistograma();
         void aplEqualizacao();

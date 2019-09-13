@@ -80,9 +80,9 @@ namespace PDI_Photoshop
             throw new NotImplementedException();
         }
 
-        public string obtEsteganografia()
+        public string[] obtEsteganografia()
         {
-            throw new NotImplementedException();
+            return funcs.obterEsteganografia(getImagem());
         }
 
         public Image aplEsteganografia(string texto)
