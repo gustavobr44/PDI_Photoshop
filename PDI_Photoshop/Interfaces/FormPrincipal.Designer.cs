@@ -65,6 +65,7 @@
             this.selecionarTudoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.esteganografiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personalizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,6 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipBotoes = new System.Windows.Forms.ToolTip(this.components);
             this.imgDisplay = new System.Windows.Forms.PictureBox();
-            this.esteganografiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBotoes.SuspendLayout();
             this.mnuOpcoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDisplay)).BeginInit();
@@ -411,20 +411,27 @@
             this.histogramaToolStripMenuItem.Image = global::PDI_Photoshop.Properties.Resources._19_512;
             this.histogramaToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.histogramaToolStripMenuItem.Name = "histogramaToolStripMenuItem";
-            this.histogramaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.histogramaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.histogramaToolStripMenuItem.Text = "&Histograma";
             this.histogramaToolStripMenuItem.Click += new System.EventHandler(this.HistogramaToolStripMenuItem_Click);
+            // 
+            // esteganografiaToolStripMenuItem
+            // 
+            this.esteganografiaToolStripMenuItem.Name = "esteganografiaToolStripMenuItem";
+            this.esteganografiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.esteganografiaToolStripMenuItem.Text = "Esteganografia";
+            this.esteganografiaToolStripMenuItem.Click += new System.EventHandler(this.EsteganografiaToolStripMenuItem_Click);
             // 
             // personalizarToolStripMenuItem
             // 
             this.personalizarToolStripMenuItem.Name = "personalizarToolStripMenuItem";
-            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.personalizarToolStripMenuItem.Text = "&Personalizar";
             // 
             // opçõesToolStripMenuItem
             // 
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.opçõesToolStripMenuItem.Text = "&Opções";
             // 
             // ajudaToolStripMenuItem
@@ -483,13 +490,6 @@
             this.imgDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgDisplay.TabIndex = 4;
             this.imgDisplay.TabStop = false;
-            // 
-            // esteganografiaToolStripMenuItem
-            // 
-            this.esteganografiaToolStripMenuItem.Name = "esteganografiaToolStripMenuItem";
-            this.esteganografiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.esteganografiaToolStripMenuItem.Text = "Esteganografia";
-            this.esteganografiaToolStripMenuItem.Click += new System.EventHandler(this.EsteganografiaToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 

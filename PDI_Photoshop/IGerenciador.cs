@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PDI_Photoshop
 {
-    interface IGerenciador
+    public interface IGerenciador
     {
         void adcImagem(Image imagem);
         Image getImagem();
@@ -17,8 +17,8 @@ namespace PDI_Photoshop
         void aplLogaritmo();
         void aplPotencia();
         void aplLinear();
-        String[] obtEsteganografia();
-        Image aplEsteganografia(String texto);
+        void mostEsteganografia();
+        void aplEsteganografia(String[] texto);
         void mostHistograma();
         void aplEqualizacao();
         Image aplFiltroGenerico();

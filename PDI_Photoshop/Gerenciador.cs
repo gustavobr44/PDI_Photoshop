@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDI_Photoshop.Interfaces;
 
 namespace PDI_Photoshop
 {
@@ -80,14 +81,18 @@ namespace PDI_Photoshop
             throw new NotImplementedException();
         }
 
-        public string[] obtEsteganografia()
+        public void mostEsteganografia()
         {
-            return funcs.obterEsteganografia(getImagem());
+            FormEsteganografia fEsteg = new FormEsteganografia(this);
+            fEsteg.Activate();
+            fEsteg.Show();
+
+            fEsteg.atualizarEsteganografia(funcs.obterEsteganografia(getImagem()));
         }
 
-        public Image aplEsteganografia(string texto)
+        public void aplEsteganografia(string[] texto)
         {
-            throw new NotImplementedException();
+            adcImagem(funcs.aplicarEsteganografia(getImagem(), texto));
         }
 
         public void mostHistograma()

@@ -155,9 +155,9 @@ namespace PDI_Photoshop
                 {
                     Color pixel = bImagem.GetPixel(i, j);
 
-                    letraR |= ((pixel.R & 1) << (7 - count));
-                    letraG |= ((pixel.G & 1) << (7 - count));
-                    letraB |= ((pixel.B & 1) << (7 - count));
+                    letraR |= ((pixel.R & 1) << (count));
+                    letraG |= ((pixel.G & 1) << (count));
+                    letraB |= ((pixel.B & 1) << (count));
 
                     if (++count == 8)
                     {
@@ -173,6 +173,50 @@ namespace PDI_Photoshop
             }
 
             return esteg;
+        }
+
+        public Image aplicarEsteganografia(Image imagem, String[] text)
+        {
+            Bitmap bImagem = (Bitmap)imagem.Clone();
+            int count = 0;
+            int[] letra = new int[3];
+            int[] cores = new int[3];
+
+            for (int i = 0, indice = 0; i < bImagem.Width; i++)
+            {
+                for (int j = 0; j < bImagem.Height; j++)
+                {
+                    Color pixel = bImagem.GetPixel(i, j);
+                    cores[0] = pixel.R;
+                    cores[1] = pixel.G;
+                    cores[2] = pixel.B;
+
+                    for (int cor = 0; cor < 3; cor++)
+                    {
+                        if (indice < text[cor].Length)
+                        {
+                            if (count == 0)
+                            {
+                                letra[cor] = text[cor][indice];
+                            }
+
+                            cores[cor] = ((letra[cor] & 1) == 1) ? cores[cor] | 1 : cores[cor] & ~1;
+                            letra[cor] >>= 1; 
+                        }
+                    }
+
+                    pixel = Color.FromArgb((byte)cores[0], (byte)cores[1], (byte)cores[2]);
+                    bImagem.SetPixel(i, j, pixel);
+
+                    if (++count == 8)
+                    {
+                        count = 0;
+                        indice++;
+                    }
+                }
+            }
+
+            return (Image)bImagem;
         }
     }
 }
