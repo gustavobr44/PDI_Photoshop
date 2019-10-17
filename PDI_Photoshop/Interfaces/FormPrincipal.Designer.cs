@@ -36,7 +36,7 @@
             this.funcao7 = new System.Windows.Forms.Button();
             this.funcao8 = new System.Windows.Forms.Button();
             this.funcao6 = new System.Windows.Forms.Button();
-            this.funcao5 = new System.Windows.Forms.Button();
+            this.funcaoFiltro = new System.Windows.Forms.Button();
             this.funcaoEqu = new System.Windows.Forms.Button();
             this.funcaoPot = new System.Windows.Forms.Button();
             this.pnlBotoes = new System.Windows.Forms.Panel();
@@ -76,6 +76,8 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipBotoes = new System.Windows.Forms.ToolTip(this.components);
             this.imgDisplay = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.redimensionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBotoes.SuspendLayout();
             this.mnuOpcoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDisplay)).BeginInit();
@@ -135,14 +137,16 @@
             this.funcao6.TabIndex = 5;
             this.funcao6.UseVisualStyleBackColor = false;
             // 
-            // funcao5
+            // funcaoFiltro
             // 
-            this.funcao5.BackColor = System.Drawing.Color.Gray;
-            this.funcao5.Location = new System.Drawing.Point(3, 227);
-            this.funcao5.Name = "funcao5";
-            this.funcao5.Size = new System.Drawing.Size(50, 50);
-            this.funcao5.TabIndex = 4;
-            this.funcao5.UseVisualStyleBackColor = false;
+            this.funcaoFiltro.BackColor = System.Drawing.Color.Gray;
+            this.funcaoFiltro.Location = new System.Drawing.Point(3, 227);
+            this.funcaoFiltro.Name = "funcaoFiltro";
+            this.funcaoFiltro.Size = new System.Drawing.Size(50, 50);
+            this.funcaoFiltro.TabIndex = 4;
+            this.tipBotoes.SetToolTip(this.funcaoFiltro, "Aplicar Filtro");
+            this.funcaoFiltro.UseVisualStyleBackColor = false;
+            this.funcaoFiltro.Click += new System.EventHandler(this.FuncaoFiltro_Click);
             // 
             // funcaoEqu
             // 
@@ -175,7 +179,7 @@
             this.pnlBotoes.Controls.Add(this.funcaoPot);
             this.pnlBotoes.Controls.Add(this.funcaoEqu);
             this.pnlBotoes.Controls.Add(this.funcao11);
-            this.pnlBotoes.Controls.Add(this.funcao5);
+            this.pnlBotoes.Controls.Add(this.funcaoFiltro);
             this.pnlBotoes.Controls.Add(this.funcao10);
             this.pnlBotoes.Controls.Add(this.funcao6);
             this.pnlBotoes.Controls.Add(this.funcao9);
@@ -326,6 +330,8 @@
             this.desfazerToolStripMenuItem1,
             this.refazerToolStripMenuItem1,
             this.toolStripSeparator3,
+            this.redimensionarToolStripMenuItem,
+            this.toolStripSeparator6,
             this.recortarToolStripMenuItem,
             this.copiarToolStripMenuItem,
             this.colarToolStripMenuItem,
@@ -386,7 +392,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // selecionarTudoToolStripMenuItem
             // 
@@ -491,6 +497,20 @@
             this.imgDisplay.TabIndex = 4;
             this.imgDisplay.TabStop = false;
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            // 
+            // redimensionarToolStripMenuItem
+            // 
+            this.redimensionarToolStripMenuItem.Checked = true;
+            this.redimensionarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.redimensionarToolStripMenuItem.Name = "redimensionarToolStripMenuItem";
+            this.redimensionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redimensionarToolStripMenuItem.Text = "Redimensionar";
+            this.redimensionarToolStripMenuItem.Click += new System.EventHandler(this.RedimensionarToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,7 +541,7 @@
         private System.Windows.Forms.Button funcao7;
         private System.Windows.Forms.Button funcao8;
         private System.Windows.Forms.Button funcao6;
-        private System.Windows.Forms.Button funcao5;
+        private System.Windows.Forms.Button funcaoFiltro;
         private System.Windows.Forms.Button funcaoEqu;
         private System.Windows.Forms.Button funcaoPot;
         private System.Windows.Forms.Button btnLogaritmo;
@@ -560,6 +580,8 @@
         private System.Windows.Forms.ToolStripMenuItem histogramaToolStripMenuItem;
         private System.Windows.Forms.ToolTip tipBotoes;
         private System.Windows.Forms.ToolStripMenuItem esteganografiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redimensionarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
 

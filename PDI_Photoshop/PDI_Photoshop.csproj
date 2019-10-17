@@ -53,6 +53,12 @@
     <Compile Include="Interfaces\FormEsteganografia.Designer.cs">
       <DependentUpon>FormEsteganografia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\FormFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\FormFiltro.Designer.cs">
+      <DependentUpon>FormFiltro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaces\FormEsteganografia.resx">
       <DependentUpon>FormEsteganografia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FormFiltro.resx">
+      <DependentUpon>FormFiltro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

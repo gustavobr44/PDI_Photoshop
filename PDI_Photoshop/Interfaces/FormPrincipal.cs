@@ -102,6 +102,24 @@ namespace PDI_Photoshop
         {
             gere.mostEsteganografia();
         }
+
+        private void FuncaoFiltro_Click(object sender, EventArgs e)
+        {
+            gere.mostFiltro();
+        }
+
+        private void RedimensionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (redimensionarToolStripMenuItem.Checked)
+            {
+                redimensionarToolStripMenuItem.Checked = false;
+                imgDisplay.SizeMode = PictureBoxSizeMode.CenterImage;
+            } else
+            {
+                redimensionarToolStripMenuItem.Checked = true;
+                imgDisplay.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+        }
     }
 }
 

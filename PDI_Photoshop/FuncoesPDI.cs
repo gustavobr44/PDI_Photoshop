@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 
 namespace PDI_Photoshop
 {
@@ -217,6 +218,129 @@ namespace PDI_Photoshop
             }
 
             return (Image)bImagem;
+        }
+
+        public Image aplicarFiltro(Image imagem, double[,] transf)
+        {
+            Bitmap bImagem = (Bitmap)imagem;
+            int comp = bImagem.Width, altu = bImagem.Height;
+
+            double[,,] dImagem = new double[comp, altu, 3];
+
+            double[,] transfR = rotacionarMatriz(transf);
+            int dimTransfR = (int)Math.Sqrt(transfR.Length);
+            int cenTransfR = dimTransfR / 2;
+
+            for (int i = 0; i < comp; i++)
+            {
+                for (int j = 0; j < altu; j++)
+                {
+                    double sumR = 0, sumG = 0, sumB = 0;
+
+                    for (int a = -cenTransfR; a <= cenTransfR; a++)
+                    {
+                        for (int b = -cenTransfR; b <= cenTransfR; b++)
+                        {
+                            if (!(i + a < 0 || j + b < 0 || i + a >= comp || j + b >= altu))
+                            {
+                                Color pixel = bImagem.GetPixel(i + a, j + b);
+
+                                sumR += pixel.R * transfR[a + cenTransfR, b + cenTransfR];
+                                sumG += pixel.G * transfR[a + cenTransfR, b + cenTransfR];
+                                sumB += pixel.B * transfR[a + cenTransfR, b + cenTransfR];
+                            }
+                        }
+                    }
+
+                    dImagem[i, j, 0] = sumR; dImagem[i, j, 1] = sumG; dImagem[i, j, 2] = sumB;
+                }
+            }
+
+            int[,,] iImagem = normalizar(dImagem, comp, altu);
+
+            return intToBitmap(iImagem, comp, altu);
+        }
+
+        private double[,] rotacionarMatriz(double[,] matriz)
+        {
+            int dim = (int)Math.Sqrt(matriz.Length);
+            double[,] matrizR = new double[dim, dim];
+
+            for (int i = 0, a = dim-1; i < dim; i++, a--)
+            {
+                for (int j = 0, b = dim-1; j < dim; j++, b--)
+                {
+                    matrizR[i, j] = matriz[a, b];
+                }
+            }
+
+            return matrizR;
+        }
+
+        private int[,,] normalizar(double[,,] imagem, int x, int y)
+        {
+            double max = 0, min = 0;
+            int[,,] imagemN = new int[x, y, 3];
+
+            for (int c = 0; c < 3; c++)
+            {
+                for (int i = 0; i < x; i++)
+                {
+                    for (int j = 0; j < y; j++)
+                    {
+                        max = (imagem[i, j, c] > max) ? imagem[i, j, c] : max;
+                        min = (imagem[i, j, c] < min) ? imagem[i, j, c] : min;
+                    }
+                }
+
+                max += Math.Abs(min);
+
+                for (int i = 0; i < x; i++)
+                {
+                    for (int j = 0; j < y; j++)
+                    {
+                        imagem[i, j, c] += Math.Abs(min);
+                        imagemN[i, j, c] = (int)((imagem[i, j, c] / max) * 255);
+                    }
+                }
+            }
+
+            return imagemN;
+        }
+
+        private double[,,] bitmapToDouble(Bitmap imagem)
+        {
+            double[,,] imagemF = new double[imagem.Width, imagem.Height, 3];
+
+            for (int i = 0; i < imagem.Width; i++)
+            {
+                for (int j = 0; j < imagem.Height; j++)
+                {
+                    Color pixel = imagem.GetPixel(i, j);
+
+                    imagemF[i, j, 0] = pixel.R;
+                    imagemF[i, j, 1] = pixel.G;
+                    imagemF[i, j, 2] = pixel.B;
+                }
+            }
+
+            return imagemF;
+        }
+
+        private Bitmap intToBitmap(int[,,] imagem, int x, int y)
+        {
+            Bitmap imagemB = new Bitmap(x, y);
+
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    Color pixel = Color.FromArgb(imagem[i, j, 0], imagem[i, j, 1], imagem[i, j, 2]);
+                    imagemB.SetPixel(i, j, pixel);
+                }
+            }
+
+            return imagemB;
         }
     }
 }

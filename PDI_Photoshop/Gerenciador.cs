@@ -109,32 +109,39 @@ namespace PDI_Photoshop
             adcImagem(funcs.aplicarEqua(getImagem()));
         }
 
-        public Image aplFiltroGenerico()
+        public void mostFiltro()
+        {
+            FormFiltro fFilt = new FormFiltro(this);
+            fFilt.Activate();
+            fFilt.Show();
+        }
+
+        public void aplFiltroGenerico(double[,] matriz)
+        {
+            adcImagem(funcs.aplicarFiltro(getImagem(), matriz));
+        }
+
+        public void aplFiltroMedia()
         {
             throw new NotImplementedException();
         }
 
-        public Image aplFiltroMedia()
+        public void aplFiltroGaussiano()
         {
             throw new NotImplementedException();
         }
 
-        public Image aplFiltroGaussiano()
+        public void aplLaplaciano()
         {
             throw new NotImplementedException();
         }
 
-        public Image aplLaplaciano()
+        public void aplHighBoost()
         {
             throw new NotImplementedException();
         }
 
-        public Image aplHighBoost()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Image aplMediana()
+        public void aplMediana()
         {
             throw new NotImplementedException();
         }

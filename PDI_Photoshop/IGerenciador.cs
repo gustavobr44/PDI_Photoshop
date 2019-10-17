@@ -21,11 +21,12 @@ namespace PDI_Photoshop
         void aplEsteganografia(String[] texto);
         void mostHistograma();
         void aplEqualizacao();
-        Image aplFiltroGenerico();
-        Image aplFiltroMedia();
-        Image aplFiltroGaussiano();
-        Image aplLaplaciano();
-        Image aplHighBoost();
-        Image aplMediana();
+        void mostFiltro();
+        void aplFiltroGenerico(double[,] matriz);
+        void aplFiltroMedia();
+        void aplFiltroGaussiano();
+        void aplLaplaciano();
+        void aplHighBoost();
+        void aplMediana();
     }
 }
