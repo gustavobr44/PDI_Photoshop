@@ -147,7 +147,7 @@ namespace PDI_Photoshop.Interfaces
         private void laplaceSelect()
         {
             dim = 3;
-            double[,] matLaplace = { { 0, 1, 0 }, { 1, -4, 1 }, { 0, 1, 0 } };
+            double[,] matLaplace = { { 1, 1, 1 }, { 1, -8, 1 }, { 1, 1, 1 } };
             enableMatrix(0, matLaplace);
         }
 

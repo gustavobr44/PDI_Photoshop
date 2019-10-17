@@ -279,11 +279,16 @@ namespace PDI_Photoshop
 
         private int[,,] normalizar(double[,,] imagem, int x, int y)
         {
-            double max = 0, min = 0;
             int[,,] imagemN = new int[x, y, 3];
 
             for (int c = 0; c < 3; c++)
             {
+                /*double max = 1020;
+                double min = -1020;*/
+
+                double max = -10000;
+                double min = 10000;
+
                 for (int i = 0; i < x; i++)
                 {
                     for (int j = 0; j < y; j++)
