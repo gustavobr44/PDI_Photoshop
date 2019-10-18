@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HSICustom.cs" />
     <Compile Include="Interfaces\FormEsteganografia.cs">
       <SubType>Form</SubType>
     </Compile>

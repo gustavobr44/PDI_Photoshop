@@ -15,7 +15,6 @@ namespace PDI_Photoshop.Interfaces
         IGerenciador gere;
         private NumericUpDown[,] matriz;
         private int dim;
-        private double valor;
 
         public FormFiltro(IGerenciador gere)
         {
@@ -79,7 +78,7 @@ namespace PDI_Photoshop.Interfaces
                     }
                     else
                     {
-                        matriz[i, j].Value = (decimal)mat[x, y];
+                        matriz[i, j].Value = (decimal)mat[x, y]/16;
                     }
                 }
             }
@@ -141,14 +140,20 @@ namespace PDI_Photoshop.Interfaces
         {
             dim = 3;
             double[,] matGaussiano = { { 1, 2, 1 }, { 2, 4, 2 }, { 1, 2, 1 } };
-            enableMatrix(0, matGaussiano);
+            enableMatrix(16, matGaussiano);
         }
 
         private void laplaceSelect()
         {
             dim = 3;
             double[,] matLaplace = { { 1, 1, 1 }, { 1, -8, 1 }, { 1, 1, 1 } };
-            enableMatrix(0, matLaplace);
+            enableMatrix(1, matLaplace);
+        }
+
+        private void boostSelect()
+        {
+            dim = 1;
+            enableMatrix(1);
         }
 
         private void Rdb3_CheckedChanged(object sender, EventArgs e)
@@ -171,6 +176,10 @@ namespace PDI_Photoshop.Interfaces
             {
                 laplaceSelect();
             }
+            else if (rdbHighBoost.Checked)
+            {
+                boostSelect();
+            }
         }
 
         private void BtnAplFiltro_Click(object sender, EventArgs e)
@@ -188,7 +197,17 @@ namespace PDI_Photoshop.Interfaces
                     }
                 }
 
-                gere.aplFiltroGenerico(dMatriz);
+                if (dim == 1)
+                {
+                    double k = dMatriz[0, 0];
+                    double[,] matBoost = { { -k, -k, -k }, { -k, 8 * k + 1, -k }, { -k, -k, -k } };
+                    gere.aplFiltroGenerico(matBoost);
+                }
+                else
+                {
+                    gere.aplFiltroGenerico(dMatriz);
+                }
+
                 MessageBox.Show("Filtro aplicado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

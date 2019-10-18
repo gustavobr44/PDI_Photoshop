@@ -26,7 +26,7 @@ namespace PDI_Photoshop
         void aplFiltroMedia();
         void aplFiltroGaussiano();
         void aplLaplaciano();
-        void aplHighBoost();
+        void aplHighBoost(double[,] matriz, double k);
         void aplMediana();
     }
 }

@@ -220,7 +220,7 @@ namespace PDI_Photoshop
             return (Image)bImagem;
         }
 
-        public Image aplicarFiltro(Image imagem, double[,] transf)
+        public Image aplicarFiltro(Image imagem, double[,] transf, int t = 0)
         {
             Bitmap bImagem = (Bitmap)imagem;
             int comp = bImagem.Width, altu = bImagem.Height;
@@ -277,7 +277,7 @@ namespace PDI_Photoshop
             return matrizR;
         }
 
-        private int[,,] normalizar(double[,,] imagem, int x, int y)
+        private int[,,] normalizar(double[,,] imagem, int x, int y, double mAx = -10000, double mIn = 10000)
         {
             int[,,] imagemN = new int[x, y, 3];
 
@@ -286,8 +286,8 @@ namespace PDI_Photoshop
                 /*double max = 1020;
                 double min = -1020;*/
 
-                double max = -10000;
-                double min = 10000;
+                double max = mAx;
+                double min = mIn;
 
                 for (int i = 0; i < x; i++)
                 {
@@ -298,14 +298,14 @@ namespace PDI_Photoshop
                     }
                 }
 
-                max += Math.Abs(min);
+                max -= min;
 
                 for (int i = 0; i < x; i++)
                 {
                     for (int j = 0; j < y; j++)
                     {
-                        imagem[i, j, c] += Math.Abs(min);
-                        imagemN[i, j, c] = (int)((imagem[i, j, c] / max) * 255);
+                        imagem[i, j, c] = (imagem[i, j, c] - min) / max;
+                        imagemN[i, j, c] = (int)(imagem[i, j, c] * 255);
                     }
                 }
             }

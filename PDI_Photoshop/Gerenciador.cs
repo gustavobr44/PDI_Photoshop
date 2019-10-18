@@ -136,7 +136,7 @@ namespace PDI_Photoshop
             throw new NotImplementedException();
         }
 
-        public void aplHighBoost()
+        public void aplHighBoost(double[,] matriz, double k)
         {
             throw new NotImplementedException();
         }
