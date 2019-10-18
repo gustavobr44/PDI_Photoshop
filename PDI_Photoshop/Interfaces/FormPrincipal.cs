@@ -32,7 +32,7 @@ namespace PDI_Photoshop
         {
             OpenFileDialog abrirImagem = new OpenFileDialog();
             abrirImagem.Title = "Abrir Imagem";
-            abrirImagem.Filter = "JPG Image|*.jpg|BMP Image|*.bmp";
+            abrirImagem.Filter = "JPG Image|*.jpg|BMP Image|*.bmp|TIF Image|*.tif";
 
             if (abrirImagem.ShowDialog() == DialogResult.OK)
             {

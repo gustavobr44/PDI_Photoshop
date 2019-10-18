@@ -98,6 +98,21 @@ namespace PDI_Photoshop
             return hist;
         }
 
+        public int[] obterHistogramaH(HSICustom hsi)
+        {
+            int[] hist = new int[361];
+
+            for (int i = 0; i < hsi.x; i++)
+            {
+                for (int j = 0; j < hsi.y; j++)
+                {
+                    hist[(int)(hsi.hsi[i, j, 2]*360)]++;
+                }
+            }
+
+            return hist;
+        }
+
         public Image aplicarEqua(Image imagem)
         {
             int[,] hist = obterHistograma(imagem);
@@ -141,6 +156,44 @@ namespace PDI_Photoshop
             }
 
             return (Image)bImagem;
+        }
+
+        public Image aplicarEquaH(Image imagem)
+        {
+            HSICustom hsi = new HSICustom(imagem);
+            int[] hist = obterHistogramaH(hsi);
+
+            int altura = imagem.Height;
+            int largura = imagem.Width;
+            long N = altura * largura;
+
+            double[] prob = new double[361];
+
+            for (int i = 0; i < 361; i++)
+            {
+                long sI = 0;
+
+                for (int j = 0; j < i + 1; j++)
+                {
+                    sI += hist[j];
+                }
+
+                prob[i] = sI * (360.0 / N);
+            }
+
+            for (int i = 0; i < largura; i++)
+            {
+                for (int j = 0; j < altura; j++)
+                {
+                    double I = hsi.hsi[i, j, 2] * 360;
+
+                    double nI = prob[(int)I];
+
+                    hsi.hsi[i, j, 2] = nI / 360;
+                }
+            }
+
+            return hsi.hsiToRgb();
         }
 
         public String[] obterEsteganografia(Image imagem)

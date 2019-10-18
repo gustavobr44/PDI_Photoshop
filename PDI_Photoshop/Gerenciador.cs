@@ -106,7 +106,7 @@ namespace PDI_Photoshop
 
         public void aplEqualizacao()
         {
-            adcImagem(funcs.aplicarEqua(getImagem()));
+            adcImagem(funcs.aplicarEquaH(getImagem()));
         }
 
         public void mostFiltro()

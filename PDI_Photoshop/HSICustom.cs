@@ -9,8 +9,8 @@ namespace PDI_Photoshop
 {
     class HSICustom
     {
-        double[,,] hsi;
-        int x, y;
+        public double[,,] hsi;
+        public int x, y;
 
         public HSICustom(int x, int y)
         {
@@ -46,11 +46,11 @@ namespace PDI_Photoshop
                     min = (G < min) ? G : min;
                     min = (B < min) ? B : min;
 
-                    double teta = Math.Acos(1.0 / 2 * ((R - G) + (R - B)) / Math.Pow(Math.Pow(R - G, 2) + (R - B) * (G - B), 1.0 / 2));
+                    double teta = Math.Acos(((R - G) + (R - B)) / (2 * Math.Sqrt(Math.Pow(R - G, 2) + ((R - B) * (G - B))) + 0.000001));
                     teta = teta * 180 / Math.PI;
 
                     double H = (B <= G) ? teta : 360 - teta;
-                    double S = 1 - (3 * min / (R + B + G));
+                    double S = 1 - (3 * min / (R + B + G + 0.000001));
                     double I = (R + G + B) / 3;
 
                     hsi[i, j, 0] = H / 360; hsi[i, j, 1] = S; hsi[i, j, 2] = I;
@@ -63,6 +63,7 @@ namespace PDI_Photoshop
         public Image hsiToRgb()
         {
             Bitmap bImagem = new Bitmap(x, y);
+            double c = Math.PI / 180;
 
             for (int i = 0; i < x; i++)
             {
@@ -77,7 +78,7 @@ namespace PDI_Photoshop
                     if (H < 120)
                     {
                         B = I * (1 - S);
-                        R = I * (1 + (S * Math.Cos(H) / Math.Cos(60 - H)));
+                        R = I * (1 + (S * Math.Cos(H * c) / Math.Cos((60 - H) * c)));
                         G = 3 * I - (R + B);
                     }
                     else if (H < 240)
@@ -85,7 +86,7 @@ namespace PDI_Photoshop
                         H = H - 120;
 
                         R = I * (1 - S);
-                        G = I * (1 + (S * Math.Cos(H) / Math.Cos(60 - H)));
+                        G = I * (1 + (S * Math.Cos(H * c) / Math.Cos((60 - H) * c)));
                         B = 3 * I - (R + G);
                     }
                     else
@@ -93,11 +94,14 @@ namespace PDI_Photoshop
                         H = H - 240;
 
                         G = I * (1 - S);
-                        B = I * (1 + (S * Math.Cos(H) / Math.Cos(60 - H)));
+                        B = I * (1 + (S * Math.Cos(H * c) / Math.Cos((60 - H) * c)));
                         R = 3 * I - (G + B);
                     }
 
-                    Color pixel = Color.FromArgb((int)R * 255, (int)G * 255, (int)B * 255);
+                    R = (R > 1) ? 1 : R; G = (G > 1) ? 1 : G; B = (B > 1) ? 1 : B;
+
+                    Color pixel = Color.FromArgb((int)(R * 255), (int)(G * 255), (int)(B * 255));
+                    bImagem.SetPixel(i, j, pixel);
                 }
             }
 
